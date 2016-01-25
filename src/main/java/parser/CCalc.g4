@@ -6,15 +6,15 @@ program  : body
          ;
 body     : expression
          ;
-expression : (MINUS | NOT) expression             # UnaryExp
-           | expression (MINUS | OP) expression   # BinExp
-           | INTLIT                               # IntLit
-           | BOOLIT                               # BooLit
-           | '(' expression ')'                   # ParExp
+expression : (MINUS | NOT) expression                 # UnaryExp
+           | expression (MINUS | OP) expression       # BinExp
+           | expression '?' expression ':' expression # CondExp
+           | INTLIT                                   # IntLit
+           | BOOLIT                                   # BooLit
+           | '(' expression ')'                       # ParExp
            ;
 
 // lexical rules
-
 INTLIT   : '0' | ('1'..'9')('0'..'9')*  
          ;
 

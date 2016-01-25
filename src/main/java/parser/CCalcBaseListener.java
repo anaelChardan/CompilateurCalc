@@ -17,6 +17,19 @@ public class CCalcBaseListener implements CCalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterCondExp(@NotNull CCalcParser.CondExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitCondExp(@NotNull CCalcParser.CondExpContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterBooLit(@NotNull CCalcParser.BooLitContext ctx) { }
 	/**
 	 * {@inheritDoc}

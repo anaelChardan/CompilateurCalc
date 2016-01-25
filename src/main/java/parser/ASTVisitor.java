@@ -1,6 +1,7 @@
 package parser;
 
 import ast.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 public class ASTVisitor extends CCalcBaseVisitor<AST> {
 	public AST visitProgram(CCalcParser.ProgramContext ctx) {
@@ -47,5 +48,13 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
 		Expression expr = (Expression)visit(ctx.expression());
 		System.out.println(expr.toString());
 		return new UnaryExp(expr);
+	}
+
+	public AST visitCondExp(CCalcParser.CondExpContext ctx)
+	{
+		Expression expression1 = (Expression)visit(ctx.getChild(0));
+		Expression expression2 = (Expression)visit(ctx.getChild(2));
+		Expression expression3 = (Expression)visit(ctx.getChild(4));
+		return new CondExp(expression1, expression2, expression3);
 	}
 }

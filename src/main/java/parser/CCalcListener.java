@@ -9,6 +9,17 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface CCalcListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link CCalcParser#CondExp}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondExp(@NotNull CCalcParser.CondExpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CCalcParser#CondExp}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondExp(@NotNull CCalcParser.CondExpContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link CCalcParser#BooLit}.
 	 * @param ctx the parse tree
 	 */

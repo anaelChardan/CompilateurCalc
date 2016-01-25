@@ -12,6 +12,13 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface CCalcVisitor<T> extends ParseTreeVisitor<T> {
 	/**
+	 * Visit a parse tree produced by {@link CCalcParser#CondExp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondExp(@NotNull CCalcParser.CondExpContext ctx);
+
+	/**
 	 * Visit a parse tree produced by {@link CCalcParser#BooLit}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
