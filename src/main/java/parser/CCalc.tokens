@@ -1,7 +1,8 @@
+WS=6
+INTLIT=3
+BOOLIT=4
+OP=5
 T__1=1
 T__0=2
-BOOLIT=3
-INTLIT=4
-WS=5
-')'=2
-'('=1
+'('=2
+')'=1

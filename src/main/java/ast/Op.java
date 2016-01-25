@@ -1,6 +1,6 @@
 package ast;
 
-public enum Operator {
+public enum Op {
     PLUS( "+" ),
     MINUS( "-" ),
     TIMES( "*" ),
@@ -10,7 +10,7 @@ public enum Operator {
 
     private final String op;
 
-    private Operator(final String op ) {
+    private Op(final String op ) {
         this.op = op;
     }
 

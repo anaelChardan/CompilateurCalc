@@ -1,8 +1,8 @@
-OPERATOR=3
+WS=6
+INTLIT=3
+BOOLIT=4
+OP=5
 T__1=1
 T__0=2
-BOOLIT=4
-INTLIT=5
-WS=6
-')'=2
-'('=1
+'('=2
+')'=1
