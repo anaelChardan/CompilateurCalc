@@ -41,4 +41,11 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
 		Expression expr2 = (Expression)visit(ctx.getChild(2));
         return new BinExp(expr1, operator, expr2);
     }
+
+	public AST visitUnaryExp(CCalcParser.UnaryExpContext ctx)
+	{
+		Expression expr = (Expression)visit(ctx.expression());
+		System.out.println(expr.toString());
+		return new UnaryExp(expr);
+	}
 }

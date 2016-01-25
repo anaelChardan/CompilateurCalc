@@ -59,4 +59,12 @@ public class CCalcBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitParExp(@NotNull CCalcParser.ParExpContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitUnaryExp(@NotNull CCalcParser.UnaryExpContext ctx) { return visitChildren(ctx); }
 }

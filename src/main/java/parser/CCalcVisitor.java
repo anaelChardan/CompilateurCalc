@@ -52,4 +52,11 @@ public interface CCalcVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitParExp(@NotNull CCalcParser.ParExpContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link CCalcParser#UnaryExp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryExp(@NotNull CCalcParser.UnaryExpContext ctx);
 }

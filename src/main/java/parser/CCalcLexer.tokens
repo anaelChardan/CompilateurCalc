@@ -1,8 +1,12 @@
-WS=6
+WS=8
 INTLIT=3
+NOT=6
+MINUS=5
 BOOLIT=4
-OP=5
+OP=7
 T__1=1
 T__0=2
+'!'=6
 '('=2
+'-'=5
 ')'=1

@@ -73,4 +73,15 @@ public interface CCalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitParExp(@NotNull CCalcParser.ParExpContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CCalcParser#UnaryExp}.
+	 * @param ctx the parse tree
+	 */
+	void enterUnaryExp(@NotNull CCalcParser.UnaryExpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CCalcParser#UnaryExp}.
+	 * @param ctx the parse tree
+	 */
+	void exitUnaryExp(@NotNull CCalcParser.UnaryExpContext ctx);
 }

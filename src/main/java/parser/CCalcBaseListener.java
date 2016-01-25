@@ -95,6 +95,19 @@ public class CCalcBaseListener implements CCalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterUnaryExp(@NotNull CCalcParser.UnaryExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitUnaryExp(@NotNull CCalcParser.UnaryExpContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}

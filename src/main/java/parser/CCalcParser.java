@@ -15,9 +15,9 @@ public class CCalcParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__1=1, T__0=2, INTLIT=3, BOOLIT=4, OP=5, WS=6;
+		T__1=1, T__0=2, INTLIT=3, BOOLIT=4, MINUS=5, NOT=6, OP=7, WS=8;
 	public static final String[] tokenNames = {
-		"<INVALID>", "')'", "'('", "INTLIT", "BOOLIT", "OP", "WS"
+		"<INVALID>", "')'", "'('", "INTLIT", "BOOLIT", "'-'", "'!'", "OP", "WS"
 	};
 	public static final int
 		RULE_program = 0, RULE_body = 1, RULE_expression = 2;
@@ -164,6 +164,7 @@ public class CCalcParser extends Parser {
 			return getRuleContext(ExpressionContext.class,i);
 		}
 		public TerminalNode OP() { return getToken(CCalcParser.OP, 0); }
+		public TerminalNode MINUS() { return getToken(CCalcParser.MINUS, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
@@ -199,6 +200,27 @@ public class CCalcParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class UnaryExpContext extends ExpressionContext {
+		public TerminalNode MINUS() { return getToken(CCalcParser.MINUS, 0); }
+		public TerminalNode NOT() { return getToken(CCalcParser.NOT, 0); }
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
+		public UnaryExpContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterUnaryExp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitUnaryExp(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitUnaryExp(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class ParExpContext extends ExpressionContext {
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
@@ -226,19 +248,35 @@ public class CCalcParser extends Parser {
 		ExpressionContext _prevctx = _localctx;
 		int _startState = 4;
 		enterRecursionRule(_localctx, RULE_expression);
+		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(17);
+			setState(19);
 			switch (_input.LA(1)) {
+			case MINUS:
+			case NOT:
+				{
+				_localctx = new UnaryExpContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+
+				setState(11);
+				_la = _input.LA(1);
+				if ( !(_la==MINUS || _la==NOT) ) {
+				_errHandler.recoverInline(this);
+				}
+				consume();
+				setState(12); expression(5);
+				}
+				break;
 			case INTLIT:
 				{
 				_localctx = new IntLitContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-
-				setState(11); match(INTLIT);
+				setState(13); match(INTLIT);
 				}
 				break;
 			case BOOLIT:
@@ -246,7 +284,7 @@ public class CCalcParser extends Parser {
 				_localctx = new BooLitContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(12); match(BOOLIT);
+				setState(14); match(BOOLIT);
 				}
 				break;
 			case 2:
@@ -254,16 +292,16 @@ public class CCalcParser extends Parser {
 				_localctx = new ParExpContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(13); match(2);
-				setState(14); expression(0);
-				setState(15); match(1);
+				setState(15); match(2);
+				setState(16); expression(0);
+				setState(17); match(1);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(24);
+			setState(26);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			while ( _alt!=2 && _alt!=-1 ) {
@@ -274,14 +312,19 @@ public class CCalcParser extends Parser {
 					{
 					_localctx = new BinExpContext(new ExpressionContext(_parentctx, _parentState, _p));
 					pushNewRecursionContext(_localctx, _startState, RULE_expression);
-					setState(19);
-					if (!(1 >= _localctx._p)) throw new FailedPredicateException(this, "1 >= $_p");
-					setState(20); match(OP);
-					setState(21); expression(2);
+					setState(21);
+					if (!(4 >= _localctx._p)) throw new FailedPredicateException(this, "4 >= $_p");
+					setState(22);
+					_la = _input.LA(1);
+					if ( !(_la==MINUS || _la==OP) ) {
+					_errHandler.recoverInline(this);
+					}
+					consume();
+					setState(23); expression(5);
 					}
 					} 
 				}
-				setState(26);
+				setState(28);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			}
@@ -306,21 +349,22 @@ public class CCalcParser extends Parser {
 	}
 	private boolean expression_sempred(ExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return 1 >= _localctx._p;
+		case 0: return 4 >= _localctx._p;
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\b\36\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\24\n\4\3"+
-		"\4\3\4\3\4\7\4\31\n\4\f\4\16\4\34\13\4\3\4\2\5\2\4\6\2\2\35\2\b\3\2\2"+
-		"\2\4\n\3\2\2\2\6\23\3\2\2\2\b\t\5\4\3\2\t\3\3\2\2\2\n\13\5\6\4\2\13\5"+
-		"\3\2\2\2\f\r\b\4\1\2\r\24\7\5\2\2\16\24\7\6\2\2\17\20\7\4\2\2\20\21\5"+
-		"\6\4\2\21\22\7\3\2\2\22\24\3\2\2\2\23\f\3\2\2\2\23\16\3\2\2\2\23\17\3"+
-		"\2\2\2\24\32\3\2\2\2\25\26\6\4\2\3\26\27\7\7\2\2\27\31\5\6\4\2\30\25\3"+
-		"\2\2\2\31\34\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\7\3\2\2\2\34\32\3"+
-		"\2\2\2\4\23\32";
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\n \4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\26"+
+		"\n\4\3\4\3\4\3\4\7\4\33\n\4\f\4\16\4\36\13\4\3\4\2\5\2\4\6\2\4\3\2\7\b"+
+		"\4\2\7\7\t\t \2\b\3\2\2\2\4\n\3\2\2\2\6\25\3\2\2\2\b\t\5\4\3\2\t\3\3\2"+
+		"\2\2\n\13\5\6\4\2\13\5\3\2\2\2\f\r\b\4\1\2\r\16\t\2\2\2\16\26\5\6\4\2"+
+		"\17\26\7\5\2\2\20\26\7\6\2\2\21\22\7\4\2\2\22\23\5\6\4\2\23\24\7\3\2\2"+
+		"\24\26\3\2\2\2\25\f\3\2\2\2\25\17\3\2\2\2\25\20\3\2\2\2\25\21\3\2\2\2"+
+		"\26\34\3\2\2\2\27\30\6\4\2\3\30\31\t\3\2\2\31\33\5\6\4\2\32\27\3\2\2\2"+
+		"\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35\7\3\2\2\2\36\34\3\2\2\2"+
+		"\4\25\34";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {
