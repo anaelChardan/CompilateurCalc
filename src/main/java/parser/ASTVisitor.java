@@ -1,10 +1,6 @@
 package parser;
 
-import ast.AST;
-import ast.Body;
-import ast.Expression;
-import ast.IntLit;
-import ast.Program;
+import ast.*;
 
 public class ASTVisitor extends CCalcBaseVisitor<AST> {
 	public AST visitProgram(CCalcParser.ProgramContext ctx) {
@@ -27,5 +23,13 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
 
 	public AST visitIntLit(CCalcParser.IntLitContext ctx) {
 		return new IntLit(Integer.parseInt(ctx.getText()));
+	}
+
+	public AST visitBooLit(CCalcParser.BooLitContext ctx) {
+		return new BooLit(Boolean.parseBoolean(ctx.getText()));
+	}
+
+	public AST visitParExp(CCalcParser.ParExpContext ctx) {
+		return new ParExp((Expression)visit(ctx.expression()));
 	}
 }

@@ -1,2 +1,8 @@
-WS=2
-INTLIT=1
+OPERATOR=3
+T__1=1
+T__0=2
+BOOLIT=4
+INTLIT=5
+WS=6
+')'=2
+'('=1
