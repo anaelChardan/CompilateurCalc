@@ -17,19 +17,6 @@ public class CCalcBaseListener implements CCalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterParExp(@NotNull CCalcParser.ParExpContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitParExp(@NotNull CCalcParser.ParExpContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterBooLit(@NotNull CCalcParser.BooLitContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -37,19 +24,6 @@ public class CCalcBaseListener implements CCalcListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitBooLit(@NotNull CCalcParser.BooLitContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterProgram(@NotNull CCalcParser.ProgramContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitProgram(@NotNull CCalcParser.ProgramContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -69,6 +43,32 @@ public class CCalcBaseListener implements CCalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterBinExp(@NotNull CCalcParser.BinExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitBinExp(@NotNull CCalcParser.BinExpContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterProgram(@NotNull CCalcParser.ProgramContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitProgram(@NotNull CCalcParser.ProgramContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterIntLit(@NotNull CCalcParser.IntLitContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -76,6 +76,19 @@ public class CCalcBaseListener implements CCalcListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitIntLit(@NotNull CCalcParser.IntLitContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterParExp(@NotNull CCalcParser.ParExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitParExp(@NotNull CCalcParser.ParExpContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

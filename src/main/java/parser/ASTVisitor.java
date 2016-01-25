@@ -34,10 +34,11 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
 		return new ParExp(expr);
 	}
 
-    public AST visitBinExp(CCalcParser.BinExpContext ctx) {
-        /*Expression expr1 = (Expression)visit(ctx.getChild(0));
-        Expression expr2 = (Expression)visit(ctx.getChild(2));
-        Operator operator = Operator.valueOf(ctx.getChild(1).getText());
-        return new BinExp(operator, expr1, expr2);*/
+    public AST visitBinExp(CCalcParser.BinExpContext ctx)
+	{
+        Expression expr1 = (Expression)visit(ctx.getChild(0));
+		Operator operator = Operator.fromString(ctx.getChild(1).getText());
+		Expression expr2 = (Expression)visit(ctx.getChild(2));
+        return new BinExp(expr1, operator, expr2);
     }
 }

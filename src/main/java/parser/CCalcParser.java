@@ -1,4 +1,4 @@
-// Generated from /Users/clementgarbay/Documents/Mines/Langage de programmation/Structure et exécution des langages de programmation/calc2c/src/main/java/parser/CCalc.g4 by ANTLR 4.1
+// Generated from /Users/Ananas/Documents/FIL/IntelliJ/SELP/calc2c/src/main/java/parser/CCalc.g4 by ANTLR 4.1
 package parser;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -50,6 +50,14 @@ public class CCalcParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitProgram(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitProgram(this);
 			else return visitor.visitChildren(this);
@@ -84,6 +92,14 @@ public class CCalcParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_body; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterBody(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitBody(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitBody(this);
@@ -130,6 +146,14 @@ public class CCalcParser extends Parser {
 		public TerminalNode BOOLIT() { return getToken(CCalcParser.BOOLIT, 0); }
 		public BooLitContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterBooLit(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitBooLit(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitBooLit(this);
 			else return visitor.visitChildren(this);
@@ -145,6 +169,14 @@ public class CCalcParser extends Parser {
 		}
 		public BinExpContext(ExpressionContext ctx) { copyFrom(ctx); }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterBinExp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitBinExp(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitBinExp(this);
 			else return visitor.visitChildren(this);
@@ -153,6 +185,14 @@ public class CCalcParser extends Parser {
 	public static class IntLitContext extends ExpressionContext {
 		public TerminalNode INTLIT() { return getToken(CCalcParser.INTLIT, 0); }
 		public IntLitContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterIntLit(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitIntLit(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitIntLit(this);
@@ -164,6 +204,14 @@ public class CCalcParser extends Parser {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public ParExpContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).enterParExp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CCalcListener ) ((CCalcListener)listener).exitParExp(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof CCalcVisitor ) return ((CCalcVisitor<? extends T>)visitor).visitParExp(this);
