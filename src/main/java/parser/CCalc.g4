@@ -6,7 +6,7 @@ program  : body EOF
          ;
 body     : expression
          ;
-expression : (MINUS | NOT) expression                              # UnaryExp
+expression : ('-' | '!') expression                                # UnaryExp
            | expression ('*' | '/') expression                     # BinExp
            | expression ('+' | '-') expression                     # BinExp
            | expression ('<' | '>' | '<=' | '=>') expression       # BinExp
@@ -25,16 +25,6 @@ INTLIT   : '0' | ('1'..'9')('0'..'9')*
 
 BOOLIT   : 'true' | 'false'
          ;
-
-MINUS    : '-'
-         ;
-
-NOT      : '!'
-         ;
-
-OP       : '+' | '*' | '/' | '==' | '<'
-         ;
-
 
 WS       : ('\t' | '\n' | '\r' | ' ') -> skip
          ;

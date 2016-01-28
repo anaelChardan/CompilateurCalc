@@ -8,6 +8,7 @@ public enum Operator {
     TIMES( "*" ),
     DIVIDE( "/" ),
     EQUALS( "==" ),
+    NOTEQUALS( "!=" ),
     INFERIOR( "<" ),
     INFERIOREQUAL(">="),
     GREATEREQUAL("<="),

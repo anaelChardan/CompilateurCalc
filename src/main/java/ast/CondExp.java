@@ -15,11 +15,7 @@ public class CondExp extends Expression {
     public String gen(int padding) {
         String space = this.getSpaceFromPadding(padding);
 
-        return space + "if ( " + this.expression1.gen(0) + ") { \n"
-                + expression2.gen(padding + 4) + ";\n"
-                + space + "} else { \n"
-                + expression3.gen(padding + 4) + ";\n"
-                + space + "}";
+        return space + this.expression1.gen(0) + " ? " + expression2.gen(0) + " : " + expression3.gen(0);
 
     }
 }
