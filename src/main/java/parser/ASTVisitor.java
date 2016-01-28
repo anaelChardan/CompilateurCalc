@@ -45,9 +45,9 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
 
 	public AST visitUnaryExp(CCalcParser.UnaryExpContext ctx)
 	{
+		UnaryOperator unaryOperator = UnaryOperator.fromString(ctx.getChild(0).getText());
 		Expression expr = (Expression)visit(ctx.expression());
-		System.out.println(expr.toString());
-		return new UnaryExp(expr);
+		return new UnaryExp(unaryOperator, expr);
 	}
 
 	public AST visitCondExp(CCalcParser.CondExpContext ctx)

@@ -2,27 +2,18 @@ package ast;
 
 import java.util.Arrays;
 
-public enum Operator {
-    PLUS( "+" ),
+public enum UnaryOperator {
     MINUS( "-" ),
-    TIMES( "*" ),
-    DIVIDE( "/" ),
-    EQUALS( "==" ),
-    INFERIOR( "<" ),
-    INFERIOREQUAL(">="),
-    GREATEREQUAL("<="),
-    GREATER(">"),
-    AND("&&"),
-    OR( "||" );
+    NOT( "!" );
 
     private final String op;
 
-    private Operator(final String op ) {
+    private UnaryOperator(final String op ) {
         this.op = op;
     }
 
-    public static Operator fromString(String op){
-        return Arrays.asList(Operator.values())
+    public static UnaryOperator fromString(String op){
+        return Arrays.asList(UnaryOperator.values())
                 .stream()
                 .filter(e -> op.equalsIgnoreCase(e.op))
                 .findFirst()

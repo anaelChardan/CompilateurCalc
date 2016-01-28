@@ -10,4 +10,9 @@ public class BinExp extends Expression{
         this.operator = op;
         this.expression2 = expression2;
     }
+
+    @Override
+    public String gen(int padding) {
+        return this.getSpaceFromPadding(padding) + expression1.gen(0) + operator.toString() + expression2.gen(0);
+    }
 }

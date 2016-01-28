@@ -1,8 +1,9 @@
 package ast;
 
 import java.lang.reflect.Field;
+import java.util.stream.IntStream;
 
-public class AST {
+abstract public class AST {
 	public String toString() {
 		// retrieve class of node
 		Class<? extends AST> tclass = this.getClass();
@@ -31,5 +32,21 @@ public class AST {
 		}
 		return relativeClassName + "(" + args + ")";
 //		return "<" + relativeClassName + ">" + args + "</" + relativeClassName + ">";
+	}
+
+	abstract public String gen(int padding);
+
+	public String gen()
+	{
+		return this.gen(0);
+	}
+
+	public String getSpaceFromPadding(int padding)
+	{
+		StringBuilder stringBuilderSpace = new StringBuilder();
+
+		IntStream.range(0, padding).forEach(e -> stringBuilderSpace.append(" "));
+
+		return stringBuilderSpace.toString();
 	}
 }

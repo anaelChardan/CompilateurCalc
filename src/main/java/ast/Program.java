@@ -6,4 +6,14 @@ public class Program extends AST {
 	public Program(Body body) {
 		this.body = body;
 	}
+
+	public String gen(int padding)
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("#include <stdio.h>\n");
+		builder.append("#include <stdbool.h>\n");
+		builder.append("\n");
+		builder.append(this.body.gen(0));
+		return builder.toString();
+	}
 }
