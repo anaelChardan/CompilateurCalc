@@ -40,6 +40,20 @@ public interface CCalcVisitor<T> extends ParseTreeVisitor<T> {
 	T visitBinExp(@NotNull CCalcParser.BinExpContext ctx);
 
 	/**
+	 * Visit a parse tree produced by {@link CCalcParser#VariaLit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariaLit(@NotNull CCalcParser.VariaLitContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link CCalcParser#definition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefinition(@NotNull CCalcParser.DefinitionContext ctx);
+
+	/**
 	 * Visit a parse tree produced by {@link CCalcParser#program}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

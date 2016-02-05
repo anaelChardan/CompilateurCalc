@@ -3,6 +3,9 @@ package parser;
 import ast.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ASTVisitor extends CCalcBaseVisitor<AST> {
 	public AST visitProgram(CCalcParser.ProgramContext ctx) {
         // retrieve ASTs for functions
@@ -17,9 +20,14 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
         return new Program(body);
 	}
 	
-	public AST visitBody(CCalcParser.BodyContext ctx) { 
+	public AST visitBody(CCalcParser.BodyContext ctx) {
+		List<Definition> definitionList = new ArrayList<Definition>();
+		for (CCalcParser.DefinitionContext def : ctx.definition())
+		{
+			definitionList.add((Definition)visit(def));
+		}
 		Expression expr = (Expression)visit(ctx.expression()); 
-		return new Body(expr); 
+		return new Body(expr, definitionList);
 	}
 
 	public AST visitIntLit(CCalcParser.IntLitContext ctx) {
@@ -56,5 +64,13 @@ public class ASTVisitor extends CCalcBaseVisitor<AST> {
 		Expression expression2 = (Expression)visit(ctx.getChild(2));
 		Expression expression3 = (Expression)visit(ctx.getChild(4));
 		return new CondExp(expression1, expression2, expression3);
+	}
+
+	public AST visitVariaLit(@NotNull CCalcParser.VariaLitContext ctx) {
+		return new VarialIt(ctx.getText());
+	}
+
+	public AST visitDefinition(@NotNull CCalcParser.DefinitionContext ctx) {
+		return new Definition(ctx.VARIABLE().toString(), (Expression)visit(ctx.expression()));
 	}
 }

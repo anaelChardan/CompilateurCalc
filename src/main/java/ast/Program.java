@@ -7,8 +7,7 @@ public class Program extends AST {
 		this.body = body;
 	}
 
-	public String gen(int padding)
-	{
+	public String gen(int padding) throws UncompatibleTypeException {
 		StringBuilder builder = new StringBuilder();
 		builder.append("#include <stdio.h>\n");
 		builder.append("#include <stdbool.h>\n");

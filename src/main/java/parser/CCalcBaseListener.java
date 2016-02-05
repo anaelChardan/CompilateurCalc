@@ -69,6 +69,32 @@ public class CCalcBaseListener implements CCalcListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterVariaLit(@NotNull CCalcParser.VariaLitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitVariaLit(@NotNull CCalcParser.VariaLitContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterDefinition(@NotNull CCalcParser.DefinitionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDefinition(@NotNull CCalcParser.DefinitionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterProgram(@NotNull CCalcParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}

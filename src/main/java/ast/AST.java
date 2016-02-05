@@ -34,10 +34,9 @@ abstract public class AST {
 //		return "<" + relativeClassName + ">" + args + "</" + relativeClassName + ">";
 	}
 
-	abstract public String gen(int padding);
+	abstract public String gen(int padding) throws UncompatibleTypeException;
 
-	public String gen()
-	{
+	public String gen() throws UncompatibleTypeException {
 		return this.gen(0);
 	}
 

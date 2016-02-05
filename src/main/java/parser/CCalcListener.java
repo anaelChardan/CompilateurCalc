@@ -53,6 +53,28 @@ public interface CCalcListener extends ParseTreeListener {
 	void exitBinExp(@NotNull CCalcParser.BinExpContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link CCalcParser#VariaLit}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariaLit(@NotNull CCalcParser.VariaLitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CCalcParser#VariaLit}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariaLit(@NotNull CCalcParser.VariaLitContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link CCalcParser#definition}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefinition(@NotNull CCalcParser.DefinitionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CCalcParser#definition}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefinition(@NotNull CCalcParser.DefinitionContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link CCalcParser#program}.
 	 * @param ctx the parse tree
 	 */
