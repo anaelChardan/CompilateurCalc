@@ -2,5 +2,5 @@
 #include <stdbool.h>
 
 int main () { 
-    return printf("%i", 8/4/2); 
+    return printf("%i", 8 / 4 / 2); 
  }

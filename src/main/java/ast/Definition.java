@@ -16,12 +16,12 @@ public class Definition extends AST {
         return getSpaceFromPadding(padding) + this.variable + " = " + this.expression.gen(0) + ";\n";
     }
 
-    public PrimitiveType getType(List<Definition> definitions) throws UncompatibleTypeException {
-        return this.expression.getType(definitions);
+    public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        return this.expression.getType(definitions, functions);
     }
 
-    protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException {
-        this.expression.checkErrors(definitions);
+    protected void checkErrors(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        this.expression.checkErrors(definitions, functions);
 
         for (Definition definition : definitions)
         {

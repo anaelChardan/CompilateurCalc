@@ -18,8 +18,8 @@ public class UnaryExp extends Expression {
     }
 
     @Override
-    public PrimitiveType getType(List<Definition> definitions) throws UncompatibleTypeException {
-        PrimitiveType exprType = expression.getType(definitions);
+    public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        PrimitiveType exprType = expression.getType(definitions, functions);
         boolean isBooleanReturn = (exprType == PrimitiveType.BOOL && unaryop == UnaryOperator.NOT);
 
         return isBooleanReturn ? PrimitiveType.BOOL : PrimitiveType.INT;
@@ -27,9 +27,9 @@ public class UnaryExp extends Expression {
     }
 
     @Override
-    protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException {
-        this.expression.checkErrors(definitions);
-        PrimitiveType exprType = expression.getType(definitions);
+    protected void checkErrors(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        this.expression.checkErrors(definitions, functions);
+        PrimitiveType exprType = expression.getType(definitions, functions);
         boolean isBooleanReturn = (exprType == PrimitiveType.BOOL && unaryop == UnaryOperator.NOT);
         boolean isIntegerReturn = (exprType == PrimitiveType.INT && unaryop == UnaryOperator.MINUS);
 

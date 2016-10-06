@@ -16,12 +16,12 @@ public class ParExp extends Expression {
     }
 
     @Override
-    public PrimitiveType getType(List<Definition> definitions) throws UncompatibleTypeException {
-        return expression.getType(definitions);
+    public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        return expression.getType(definitions, functions);
     }
 
     @Override
-    protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException {
-        this.expression.checkErrors(definitions);
+    protected void checkErrors(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        this.expression.checkErrors(definitions, functions);
     }
 }

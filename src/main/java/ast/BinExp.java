@@ -15,12 +15,12 @@ public class BinExp extends Expression{
 
     @Override
     public String gen(int padding) throws UncompatibleTypeException {
-        return this.getSpaceFromPadding(padding) + expression1.gen(0) + operator.toString() + expression2.gen(0);
+        return this.getSpaceFromPadding(padding) + expression1.gen(0) + " " +operator.toString() + " " + expression2.gen(0);
     }
 
     @Override
-    public PrimitiveType getType(List<Definition> definitions) throws UncompatibleTypeException {
-        PrimitiveType expr2Type = expression2.getType(definitions);
+    public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        PrimitiveType expr2Type = expression2.getType(definitions, functions);
 
         if (Operator.getOnlyArithmeticOperators().contains(operator) && expr2Type == PrimitiveType.INT)
         {
@@ -31,13 +31,13 @@ public class BinExp extends Expression{
     }
 
     @Override
-    protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException {
+    protected void checkErrors(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
 
-        expression1.checkErrors(definitions);
-        expression2.checkErrors(definitions);
+        expression1.checkErrors(definitions, functions);
+        expression2.checkErrors(definitions, functions);
 
-        PrimitiveType expr1Type = expression1.getType(definitions);
-        PrimitiveType expr2Type = expression2.getType(definitions);
+        PrimitiveType expr1Type = expression1.getType(definitions, functions);
+        PrimitiveType expr2Type = expression2.getType(definitions, functions);
 
         if (expr1Type != expr2Type)
         {

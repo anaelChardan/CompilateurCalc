@@ -2,5 +2,5 @@
 #include <stdbool.h>
 
 int main () { 
-    return printf("%i", 1!=0); 
+    return printf("%i", 1 != 0); 
  }

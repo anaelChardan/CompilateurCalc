@@ -26,49 +26,51 @@ public class TestSyntax {
 		}		
 	}
 	public static void main(String[] args){
-		test("test/green1.calc", true);
-		test("test/green2.calc", true);
-		test("test/green3.calc", true);
-		test("test/green4.calc", true);
-		test("test/green5.calc", true);
-		test("test/green6.calc", true);
-		test("test/green7.calc", true);
-		test("test/green8.calc", true);
-		test("test/green9.calc", true);
-		test("test/green10.calc", true);
-		test("test/green11.calc", true);
-		test("test/green12.calc", true);
-		test("test/green13.calc", true);
-		test("test/green14.calc", true);
-		test("test/green15.calc", true);
-		test("test/green16.calc", true);
-		test("test/green17.calc", true);
-		test("test/green18.calc", true);
-		test("test/green19.calc", true);
-		test("test/green21.calc", false);
-		test("test/green22.calc", false);
-		test("test/green23.calc", false);
-		test("test/green24.calc", false);
-		test("test/green25.calc", true);
-		test("test/green26.calc", true);
-		test("test/green27.calc", false);
+		String path = "src/test/resources";
+
+		//test( path + "/green1.calc", true);
+		//test( path + "/green2.calc", true);
+		//test( path + "/green3.calc", true);
+		//test( path + "/green4.calc", true);
+		//test( path + "/green5.calc", true);
+		//test( path + "/green6.calc", true);
+		//test( path + "/green7.calc", true);
+		//test( path + "/green8.calc", true);
+		//test( path + "/green9.calc", true);
+		//test( path + "/green10.calc", true);
+		//test( path + "/green11.calc", true);
+		//test( path + "/green12.calc", true);
+		//test( path + "/green13.calc", true);
+		//test( path + "/green14.calc", true);
+		//test( path + "/green15.calc", true);
+		//test( path + "/green16.calc", true);
+		//test( path + "/green17.calc", true);
+		//test( path + "/green18.calc", true);
+		//test( path + "/green19.calc", true);
+		//test( path + "/green21.calc", false);
+		//test( path + "/green22.calc", false);
+		//test( path + "/green23.calc", false);
+		//test( path + "/green24.calc", false);
+		//test( path + "/green25.calc", true);
+		//test( path + "/green26.calc", true);
+		//test( path + "/green27.calc", false);
 		
-		test("test/blue1.calc", true);
-		test("test/blue2.calc", true);
-		test("test/blue3.calc", true);
-		test("test/blue4.calc", true);
-		test("test/blue5.calc", true);
-		test("test/blue6.calc", true);
-		test("test/blue7.calc", true);
-		test("test/blue8.calc", false);
+		//test(path + "/blue1.calc", true);
+		//test(path + "/blue2.calc", true);
+		//test(path + "/blue3.calc", true);
+		//test(path + "/blue4.calc", true);
+		//test(path + "/blue5.calc", true);
+		//test(path + "/blue6.calc", true);
+		//test(path + "/blue7.calc", true);
+		//test(path + "/blue8.calc", false);
 		
-		test("test/red1.calc", true);
-		test("test/red2.calc", true);
-		test("test/red3.calc", true);
-		test("test/red4.calc", true);
-		test("test/red5.calc", true);
-		test("test/red6.calc", true);
-		test("test/red10.calc", true);
+		//test("test/red1.calc", true);
+		//test("test/red2.calc", true);
+		//test("test/red3.calc", true);
+		//test("test/red4.calc", true);
+		//test("test/red5.calc", true);
+		//test("test/red6.calc", true);
+		//test("test/red10.calc", true);
 		report();
 	}
 }

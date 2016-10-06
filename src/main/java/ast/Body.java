@@ -3,8 +3,8 @@ package ast;
 import java.util.List;
 
 public class Body extends AST {
-	public Expression expr;
 	public List<Definition> definitions;
+	public Expression expr;
 
 	public Body(Expression expr, List<Definition> definitions) {
 		this.expr = expr;
@@ -13,10 +13,6 @@ public class Body extends AST {
 
 	@Override
 	public String gen(int padding) throws UncompatibleTypeException {
-
-		this.checkErrors(definitions);
-		this.expr.checkErrors(definitions);
-
 		StringBuilder sb = new StringBuilder();
 		sb.append("int main () { \n");
 
@@ -25,8 +21,8 @@ public class Body extends AST {
 			int increment = 0;
 
 			for (Definition def : definitions) {
-				increment++;
 				typeDef = def.getType(definitions.subList(0, increment)) == PrimitiveType.BOOL ? "bool" : "int";
+				increment++;
 				sb.append(this.getSpaceFromPadding(4) + typeDef + " " + def.gen(0));
 			}
 		}
@@ -37,15 +33,22 @@ public class Body extends AST {
 		return sb.toString();
 	}
 
-	protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException
+	protected void checkErrors(List<FunctionDefinition> functions) throws UncompatibleTypeException
 	{
 		if (definitions != null) {
 			int increment = 0;
 			for (Definition def : definitions) {
-				increment++;
 				def.checkErrors(definitions.subList(0, increment));
+				increment++;
 			}
 		}
+
+		this.expr.checkErrors(this.definitions, functions);
+	}
+
+	public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functions)
+	{
+		return expr.getType(definitions, functions);
 	}
 
 }

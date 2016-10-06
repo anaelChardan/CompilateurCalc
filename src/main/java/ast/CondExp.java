@@ -21,22 +21,22 @@ public class CondExp extends Expression {
     }
 
     @Override
-    public PrimitiveType getType(List<Definition> definitions) throws UncompatibleTypeException {
-        return expression2.getType(definitions);
+    public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        return expression2.getType(definitions, functions);
     }
 
     @Override
-    protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException {
-        expression1.checkErrors(definitions);
-        expression2.checkErrors(definitions);
-        expression3.checkErrors(definitions);
+    protected void checkErrors(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
+        expression1.checkErrors(definitions, functions);
+        expression2.checkErrors(definitions, functions);
+        expression3.checkErrors(definitions, functions);
 
-        if (expression1.getType(definitions) != PrimitiveType.BOOL)
+        if (expression1.getType(definitions, functions) != PrimitiveType.BOOL)
         {
             throw new UncompatibleTypeException("You can't use an int expression on a conditionnal statement");
         }
 
-        if (expression2.getType(definitions) != expression3.getType(definitions))
+        if (expression2.getType(definitions, functions) != expression3.getType(definitions, functions))
         {
             throw new UncompatibleTypeException("You can't used different returned type");
         }

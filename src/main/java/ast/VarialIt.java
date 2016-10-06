@@ -16,7 +16,7 @@ public class VarialIt extends Expression {
     }
 
     @Override
-    public PrimitiveType getType(List<Definition> definitions) throws UncompatibleTypeException {
+    public PrimitiveType getType(List<Definition> definitions, List<FunctionDefinition> functionDefinitions) throws UncompatibleTypeException {
         Definition correspondedDef = null;
         for (Definition definition : definitions)
         {
@@ -25,11 +25,11 @@ public class VarialIt extends Expression {
                 correspondedDef = definition;
             }
         }
-        return correspondedDef.getType();
+        return correspondedDef.getType(definitions, functionDefinitions);
     }
 
     @Override
-    protected void checkErrors(List<Definition> definitions) throws UncompatibleTypeException {
+    protected void checkErrors(List<Definition> definitions, List<FunctionDefinition> functions) throws UncompatibleTypeException {
         //Check if the definitions exists
         for (Definition definition : definitions)
         {
